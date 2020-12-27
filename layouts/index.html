@@ -2,9 +2,19 @@
 
   {{- partial "banner.html" . }}
 
-  {{- partial "features.html" . }}
+  {{ $data := index .Site.Data .Site.Language.Lang }}
 
-  {{- partial "promo.html" . }}
+  {{- if $data.homepage.features.enable }}
+    {{- with $data.homepage.features }}
+      {{- partial "features.html" . }}
+    {{- end }}
+  {{- end }}
+
+  {{ if $data.homepage.promo.enable }}
+    {{ with $data.homepage.promo }}
+      {{- partial "promo.html" . }}
+    {{- end }}
+  {{- end }}
 
   {{- partial "about-product.html" . }}
 
