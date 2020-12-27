@@ -2,13 +2,20 @@
   <meta charset="utf-8">
   <title>{{ .Title }}</title>
 
-  {{ "<!-- mobile responsive meta -->" | safeHTML }}
+  {{ "<!-- Other languages -->" | safeHTML }}
+  {{ if .IsTranslated }}
+    {{ range .Translations }}
+    <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">
+    {{ end }}
+  {{ end }}
+
+  {{ "<!-- Mobile responsive meta -->" | safeHTML }}
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with site.Params.description }}{{ . }}{{ end }}{{ end }}">
   {{ with site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
   {{ hugo.Generator }}
 
-  {{ "<!-- plugins -->" | safeHTML }}
+  {{ "<!-- Plugins -->" | safeHTML }}
   {{ range site.Params.plugins.css }}
   <link rel="stylesheet" href="{{ .link | absURL }} ">
   {{ end }}
