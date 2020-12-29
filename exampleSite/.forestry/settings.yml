@@ -32,19 +32,19 @@ sections:
 - type: heading
   label: Products
 - type: directory
-  path: exampleSite/content/english/products
+  path: exampleSite/content/english/apps
   label: Product (en)
   create: documents
   match: "**/*"
   templates:
-  - product
+  - app
 - type: directory
-  path: exampleSite/content/french/products
+  path: exampleSite/content/french/apps
   label: Products (fr)
   create: documents
   match: "**/*"
   templates:
-  - product
+  - app
 - type: heading
   label: Contact
 - type: document

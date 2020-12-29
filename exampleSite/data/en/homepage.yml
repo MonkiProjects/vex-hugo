@@ -7,7 +7,7 @@ banner:
   button:
    enable : true
    label : "Browse All Products"
-   link : "products"
+   link : "apps"
 
 ############################# Feature ############################
 features:
@@ -62,12 +62,12 @@ promo:
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis commodi odit, illo, qui aliquam dol"
 
 
-############################# About Product #######################
-about_product:
+############################# About App #######################
+about_app:
   enable : true
   title : "Why Choose Apple Watch"
   items:
-    # about product item loop
+    # about app item loop
     - image : "images/showcase/showcase-4.png"
       title : "Lorem ipsum dolor sit amet."
       content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, sed, assumenda. Tenetur
@@ -78,7 +78,7 @@ about_product:
         label : "Check Features"
         link : "#"
         
-    # about product item loop
+    # about app item loop
     - image : "images/showcase/showcase-3.png"
       title : "Lorem ipsum dolor sit amet."
       content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, sed, assumenda. Tenetur
@@ -91,7 +91,7 @@ about_product:
 
 
 #################################### Products ########################
-products:
+apps:
   enable : true
   title : "Checkout Our All Products"
 

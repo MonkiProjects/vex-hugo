@@ -7,7 +7,7 @@ banner:
   button:
    enable : true
    label : "Browse All Products"
-   link : "products"
+   link : "apps"
 
 ############################# Feature ############################
 features:
@@ -63,7 +63,7 @@ promo:
 
 
 ############################# About Product #######################
-about_product:
+about_app:
   enable : true
   title : "Why Choose Apple Watch"
   items:
@@ -91,7 +91,7 @@ about_product:
 
 
 #################################### Products ########################
-products:
+apps:
   enable : true
   title : "Checkout Our All Products"
 
