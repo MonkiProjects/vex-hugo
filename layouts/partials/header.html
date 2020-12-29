@@ -10,10 +10,15 @@
 
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto">
-          {{ range site.Menus.main }}
-          <li class="nav-item">
-            <a class="nav-link" href="{{if .Pre}}{{site.BaseURL | absLangURL}}{{.Pre}}{{ .URL }}{{else}}{{.URL | absLangURL}}{{end}}">{{ .Name }}</a>
-          </li>
+          {{ $currentPage := . }}
+          {{ range .Site.Menus.main }}
+            {{ $isHome := (eq $currentPage $currentPage.Site.Home) }}
+            {{ $menuIsHome := (eq (relURL .URL) "/") }}
+            {{ $hasPrefix := (and (not $menuIsHome) (hasPrefix $currentPage.RelPermalink (relLangURL .URL))) }}
+            {{ $isMenuActive := (or (and $isHome $menuIsHome) $hasPrefix) }}
+            <li class="nav-item">
+              <a class="nav-link{{ if $isMenuActive }} active{{ end }}" href="{{if .Pre}}{{site.BaseURL | absLangURL}}{{.Pre}}{{ .URL }}{{else}}{{.URL | absLangURL}}{{end}}">{{ .Name }}</a>
+            </li>
           {{ end }}
         </ul>
         <!-- Language List -->
