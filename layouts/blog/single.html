@@ -1,0 +1,15 @@
+{{ define "main" }}
+<article class="container col-lg-6 mt-5 mb-5">
+  <h1 class="mb-4">{{.Title | markdownify}}</h1>
+  <img class="article-image mb-4" src="{{ .Params.Image | absURL }}" alt="{{ .Title }}">
+  <div class="content">
+    {{ .Content }}
+  </div>
+  <div class="byline">
+    By <b>{{ .Params.author }}</b>,
+    <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z" }}">
+    {{- .Date.Format (.Site.Params.dateform | default "January 2, 2006") -}}
+    </time>
+  </div>
+</article>
+{{ end }}

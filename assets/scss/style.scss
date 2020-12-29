@@ -627,3 +627,10 @@ textarea.form-control {
     color: $primary-color;
   }
 }
+
+.article-image {
+  width: 100%;
+  height: auto;
+  max-height: 50vh;
+  object-fit: cover;
+}
