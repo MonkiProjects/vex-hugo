@@ -17,8 +17,6 @@
     </div>
   </div>
 </footer>
-{{with site.Params.snipcart_api}}{{ "<!-- Snipcart public key -->" | safeHTML }}
-<div hidden id="snipcart" data-api-key="{{.}}"></div>{{end}}
 
 {{ "<!-- JS Plugins -->" | safeHTML }}
 {{ range site.Params.plugins.js}}<script src="{{ .link | absURL }}"></script>{{ end }}

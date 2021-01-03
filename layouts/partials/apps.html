@@ -1,5 +1,4 @@
 {{ $data := index .Site.Data .Site.Language.Lang }}
-
 {{ if $data.homepage.apps.enable }}
 <section class="gallery" id="apps">
   <div class="container">
@@ -8,16 +7,15 @@
         <div class="heading">
           <h2>{{ $data.homepage.apps.title | markdownify }}</h2>
         </div>
-
         <div class="app-slider">
           {{ range (where .Site.RegularPages "Section" "apps") }}
           <div class="block">
             <div class="gallery-overlay">
               <a href="{{ .Permalink }}" class="gallery-popup">
-                <i class="tf-ion-plus-round"></i>
+                <i class="fas fa-plus"></i>
               </a>
             </div>
-            <img class="img-fluid" src="{{range first 1 .Params.images}}{{.|absURL}}{{end}}" alt="{{.Title}}">
+            <img class="img-fluid" src="{{ range first 1 .Params.images }}{{ .|absURL }}{{ end }}" alt="{{ .Title }}">
           </div>
           {{ end }}
         </div>

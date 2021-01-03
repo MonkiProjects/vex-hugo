@@ -9,23 +9,23 @@
         <p>{{ .content | markdownify }}</p>
         <ul class="list-unstyled contact-list">
           {{ with .mobile }}<li class="mb-3">
-            <i class="tf-ion-ios-telephone mr-2"></i>
+            <i class="fas fa-phone mr-2"></i>
             <a href="tel:{{ . }}">{{ . }}</a>
           </li>{{ end }}
           {{ with .email }}<li class="mb-3">
-            <i class="tf-ion-email mr-2"></i>
+            <i class="fas fa-envelope mr-2"></i>
             <a href="mailto:{{ . }}">{{ . }}</a>
           </li>{{ end }}
           {{ with .instagram }}<li class="mb-3">
-            <i class="tf-ion-social-instagram mr-2"></i>
+            <i class="fab fa-instagram mr-2"></i>
             <a href="https://www.instagram.com/{{ . }}">@{{ . }}</a>
           </li>{{ end }}
           {{ with .linkedin }}<li class="mb-3">
-            <i class="tf-ion-social-linkedin mr-2"></i>
+            <i class="fab fa-linkedin mr-2"></i>
             <a href="https://www.linkedin.com/company/{{ . }}">{{ . }}</a>
           </li>{{ end }}
           {{ with .location }}<li class="mb-3">
-            <i class="tf-ion-ios-location mr-2"></i>
+            <i class="fas fa-map-marker-alt mr-2"></i>
             {{ . }}
           </li>{{ end }}
         </ul>
