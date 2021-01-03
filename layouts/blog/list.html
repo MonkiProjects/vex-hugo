@@ -1,0 +1,25 @@
+{{ define "main" }}
+<section class="feature-list section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h1>{{.Title}}</h1>
+      </div>
+    </div>
+    <div class="row">
+      {{ range where .Site.RegularPages "Section" "blog" }}
+      <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+          <img class="card-img-top" src="{{ .Params.image | absURL }}" alt="...">
+          <div class="card-body">
+            <h4 class="card-title">{{ .Title | markdownify }}</h4>
+            <p class="card-text">{{ .Summary }}</p>
+            <a class="btn btn-primary stretched-link" href="{{ .Permalink }}">{{ i18n "read_more" }}</a>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
