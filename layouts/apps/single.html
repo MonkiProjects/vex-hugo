@@ -1,10 +1,9 @@
 {{ define "main" }}
-
 <section class="section">
   <div class="container">
     <div class="row">
       <div class="col-md-4 mb-4 mb-md-0">
-        <!-- app image slider -->
+        {{ "<!-- App Image Slider -->" | safeHTML }}
         <div class="app-image-slider">
           {{ range .Params.images }}
           <div data-image="{{ . | absURL }}">
@@ -16,18 +15,11 @@
       <div class="col-lg-7 col-md-7 offset-lg-1">
         <h1 class="mb-4">{{ .Title }}</h1>
         {{ .Content }}
-        <button class="snipcart-add-item btn btn-main mb-5" 
-          data-item-id="{{ .Title | urlize }}"
-          data-item-name="{{ .Title }}"
-          data-item-image="{{ range first 1 .Params.Images }}{{ . | absURL }}{{ end }}"
-          data-item-url="{{ .Permalink}}" 
-        >{{ i18n "add_to_cart" }}
-        </button>
+        <button class="snipcart-add-item btn btn-main mb-5">{{ i18n "add_to_cart" }}</button>
       </div>
     </div>
   </div>
 </section>
 {{ with .Params.promo }}{{- partial "promo.html" . }}{{ end }}
 {{ with .Params.features }}{{- partial "features.html" . }}{{ end }}
-
 {{ end }}
