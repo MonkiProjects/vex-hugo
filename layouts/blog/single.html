@@ -11,5 +11,8 @@
     {{- .Date.Format (.Site.Params.dateform | default "January 2, 2006") -}}
     </time>
   </div>
+  {{- if in (.Site.BaseURL | string) "localhost" }}
+  <span class="text-secondary">{{- .WordCount }} words</span>
+  {{- end }}
 </article>
 {{ end }}
