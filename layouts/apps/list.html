@@ -5,21 +5,23 @@
       <div class="col-12 text-center mb-5">
         <h1 class="font-weight-bold">{{.Title}}</h1>
       </div>
-      {{ range (where .Site.RegularPages "Section" "apps") }}
-      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-        <div class="block">
-          <div class="gallery-overlay">
-            <a href="{{ .Permalink }}" class="gallery-popup">
-              <i class="fas fa-plus"></i>
-            </a>
+      <div class="d-flex justify-content-center">
+        {{- range (where .Site.RegularPages "Section" "apps") }}
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="block">
+            <div class="gallery-overlay">
+              <a href="{{ .Permalink }}" class="gallery-popup">
+                <i class="fas fa-plus"></i>
+              </a>
+            </div>
+            <img class="img-fluid" src="{{ range first 1 .Params.images }}{{ . | absURL }}{{ end }}" alt="{{ .Title }}">
           </div>
-          <img class="img-fluid" src="{{ range first 1 .Params.images }}{{ . | absURL }}{{ end }}" alt="{{ .Title }}">
+          <div class="app-info">
+          <h2 class="mb-2"><a href="{{ .Permalink }}" class="link-title">{{ .Title }}</a></h2>
+          </div>
         </div>
-        <div class="app-info">
-        <h4 class="mb-2"><a href="{{ .Permalink }}" class="link-title">{{ .Title }}</a></h4>
-        </div>
+        {{- end }}
       </div>
-      {{ end }}
     </div>
   </div>
 </section>

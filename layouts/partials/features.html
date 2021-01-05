@@ -8,7 +8,7 @@
       </div>
       <div class="col-md-4">
         {{ range .left_side }}
-        <div class="mb-40 text-center text-md-left">
+        <div class="mb-40 text-md-end text-center">
           <i class="d-inlin-block h2 mb-10 {{ .icon }}"></i>
           <h4 class="font-weight-bold mb-2">{{ .title | markdownify }}</h4>
           <p>{{ .content | markdownify }}</p>
@@ -20,7 +20,7 @@
       </div>
       <div class="col-md-4">
         {{ range .right_side }}
-        <div class="mb-40 text-center text-md-left">
+        <div class="mb-40 text-md-start text-center">
           <i class="d-inlin-block h2 mb-10 {{ .icon }}"></i>
           <h4 class="font-weight-bold mb-2">{{ .title | markdownify }}</h4>
           <p>{{ .content | markdownify }}</p>

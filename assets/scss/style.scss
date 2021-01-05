@@ -1,10 +1,18 @@
 @import 'mixins';
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 
-// Variables
-$primary-font: 'Nunito', sans-serif;
-$secondary-font: 'Droid Serif', serif;
-$icon-font: 'themefisher-font' !important;
+/* ========== Override Bootstrap Variables ========== */
+
+// Required
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+// Change theme colors
+$theme-colors: (
+  primary: #FF9500,
+);
+
+/* ========== Variables ========== */
 
 :root {
   --font-family-sans-serif: 'Nunito', sans-serif;
@@ -12,10 +20,22 @@ $icon-font: 'themefisher-font' !important;
   --accent-color: #ff9500;
 }
 
+// Variables
+$primary-font: 'Nunito', sans-serif;
+$secondary-font: 'Droid Serif', serif;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+/* ========== Fonts ========== */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+body {
+  font-family: var(--font-family-sans-serif);
+}
+
 /* Common CSS */
 body {
   color: #3b4045;
-  font-family: var(--font-family-sans-serif);
 }
 
 .preloader {
@@ -36,7 +56,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, .h1 {
-  font-size: 3em;
+  font-size: 2.5em;
   font-weight: 1000;
 }
 
@@ -146,32 +166,28 @@ a, a:active, a:focus, a:active {
 }
 
 .btn {
-  border-radius: 0;
   text-decoration: none !important;
 }
 
 .btn-main {
   color: #fff;
-  border-radius: 30px;
-  font-size: 18px;
-  padding: 15px 40px;
+  border-radius: 1.75em;
+  font-size: 1.25em;
+  padding: 0.5em 1.5em;
   display: inline-block;
   background-color: var(--accent-color);
   box-shadow: 0 15px 40px rgba(249, 167, 68, 0.5);
   background-image: linear-gradient(bottom, rgba(255, 239, 206, 0) 0%, rgba(255, 239, 206, 0.25) 100%);
 
-  &:hover,
-  &:focus {
+  &:hover, &:focus {
     background-color: var(--accent-color);
     color: #fff;
   }
 }
 
 .btn-main-sm {
-  padding: 12px 35px;
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 1em;
+  padding: 0.5em 1.5em;
 }
 
 /* navigation */
@@ -199,8 +215,6 @@ a, a:active, a:focus, a:active {
 }
 
 .lang-list {
-  margin-left: 20px;
-  font-size: 16px;
   cursor: pointer;
 }
 
