@@ -75,12 +75,6 @@ h4, .h4 {
   font-weight: 400;
 }
 
-ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
 a {
   -webkit-transition: all 0.2s ease-in-out 0s;
   -moz-transition: all 0.2s ease-in-out 0s;
@@ -503,17 +497,8 @@ textarea.form-control {
     text-decoration: underline;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     margin-bottom: 10px;
-  }
-
-  ol,ul {
-    padding-left: 10px;
   }
 
   table {
@@ -523,8 +508,7 @@ textarea.form-control {
     margin-bottom: 1rem;
     border: 1px solid #dee2e6;
 
-    th,
-    td {
+    th, td {
       padding: .75rem;
       vertical-align: top;
       border: 1px solid #dee2e6
