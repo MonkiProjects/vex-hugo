@@ -1,0 +1,13 @@
+<div class="text-center">
+  <a class="d-flex flex-column" href="{{ .Permalink }}">
+    <div class="block d-flex justify-content-center">
+      <div class="gallery-overlay">
+        <div class="gallery-popup">
+          <i class="fas fa-plus"></i>
+        </div>
+      </div>
+      <img class="img-fluid" style="max-height: 50vh;" src="{{ range first 1 .Params.images }}{{ . | absURL }}{{ end }}" alt="{{ .Title }}">
+    </div>
+    <h4 class="fs-2 fw-bold"><a class="link-title" href="{{ .Permalink }}">{{ .Title }}</a></h4>
+  </a>
+</div>

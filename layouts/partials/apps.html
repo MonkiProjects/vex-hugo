@@ -1,26 +1,13 @@
 {{ $data := index .Site.Data .Site.Language.Lang }}
-{{ if $data.homepage.apps.enable }}
-<section class="gallery" id="apps">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="heading">
-          <h2>{{ $data.homepage.apps.title | markdownify }}</h2>
-        </div>
-        <div class="app-slider">
-          {{ range (where .Site.RegularPages "Section" "apps") }}
-          <div class="block">
-            <div class="gallery-overlay">
-              <a href="{{ .Permalink }}" class="gallery-popup">
-                <i class="fas fa-plus"></i>
-              </a>
-            </div>
-            <img class="img-fluid" src="{{ range first 1 .Params.images }}{{ .|absURL }}{{ end }}" alt="{{ .Title }}">
-          </div>
-          {{ end }}
-        </div>
-      </div>
+{{- if $data.homepage.apps.enable }}
+<section id="apps" class="gallery py-5 text-sm-center">
+  <div class="container py-lg-5">
+    <h2 class="display-2 mb-3">{{ $data.homepage.apps.title | markdownify }}</h2>
+    <div class="app-slider">
+      {{- range (where .Site.RegularPages "Section" "apps") }}
+        {{- partial "app-link.html" . }}
+      {{- end }}
     </div>
   </div>
 </section>
-{{ end }}
+{{- end }}

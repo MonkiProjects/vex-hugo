@@ -1,25 +1,28 @@
 {{ define "main" }}
-<section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 mb-4 mb-md-0">
-        {{ "<!-- App Image Slider -->" | safeHTML }}
-        <div class="app-image-slider">
-          {{ range .Params.images }}
-          <div data-image="{{ . | absURL }}">
-            <img class="img-fluid w-100" src="{{ . | absURL }}" alt="app-image">
-          </div>
-          {{ end }}
+<section class="gallery py-5 text-sm-center text-lg-start container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 offset-lg-1 order-lg-1 mb-3">
+      {{ "<!-- App Description -->" | safeHTML }}
+      <h1 class="display-1 mb-3">{{ .Title | markdownify }}</h1>
+      <p class="lead">{{ .Content | markdownify }}</p>
+      <a class="btn btn-main my-2 disabled" href="#">{{ i18n "view_in_app_store" | markdownify }}</a>
+    </div>
+    <div class="col-lg-5 order-lg-0">
+      {{ "<!-- App Image Slider -->" | safeHTML }}
+      <div class="app-image-slider">
+        {{- range .Params.images }}
+        <div class="d-flex justify-content-center" data-image="{{ . | absURL }}">
+          <img class="img-fluid" style="max-height: 50vh;" src="{{ . | absURL }}" alt="App screenshot">
         </div>
-      </div>
-      <div class="col-lg-7 col-md-7 offset-lg-1">
-        <h1 class="mb-4">{{ .Title }}</h1>
-        {{ .Content }}
-        <button class="btn btn-main mb-5">{{ i18n "view_in_app_store" }}</button>
+        {{- end }}
       </div>
     </div>
   </div>
 </section>
-{{ with .Params.promo }}{{- partial "promo.html" . }}{{ end }}
-{{ with .Params.features }}{{- partial "features.html" . }}{{ end }}
+{{- with .Params.promo }}
+  {{ partial "promo.html" . }}
+{{- end }}
+{{- with .Params.features }}
+  {{ partial "features.html" . }}
+{{- end }}
 {{ end }}

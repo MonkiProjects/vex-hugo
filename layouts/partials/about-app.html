@@ -1,56 +1,30 @@
 {{ $data := index .Site.Data .Site.Language.Lang }}
-
-{{ if $data.homepage.about_app.enable }}
-{{ with $data.homepage.about_app }}
-<section class="feature-list section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="heading">
-          <h2>{{ .title | markdownify }}</h2>
-        </div>
-      </div>
-    </div>
+{{- if $data.homepage.about_app.enable }}
+{{- with $data.homepage.about_app }}
+<section id="app-details" class="py-5 text-sm-center">
+  <div class="container py-lg-5">
+    <h2 class="display-2 text-center mb-3">{{ .title | markdownify }}</h2>
     <div>
-      {{ range $index, $element := .items }}
-      {{- if ne (mod $index 2) 1 }}
-      <div class="row mb-40">
-        <div class="col-md-4 text-center mb-5 mb-md-0">
+      {{- range $index, $element := .items }}
+      <div class="row my-4 text-start align-items-center justify-content-center {{ if ne (mod $index 2) 1 }}text-md-start{{ else }}text-md-end{{ end }}">
+        <div class="col-6 col-md-4 col-lg-3 col-xl-2 order-md-{{ if ne (mod $index 2) 1 }}0{{ else }}1{{ end }}">
           <img class="img-fluid" src="{{ .image | absURL }}" alt="">
         </div>
-        <div class="col-md-8 align-self-center text-center text-md-start">
+        <div class="col-md-8 my-3 order-md-{{ if ne (mod $index 2) 1 }}1{{ else }}0{{ end }}">
           <div class="content">
-            <h4 class="subheading">{{ .title | markdownify }}</h4>
-            <p>{{ .content | markdownify }}</p>
-            {{ if .button.enable }}
-            {{ with .button }}
-            <a href="{{ .link | absURL }}" class="btn btn-main btn-main-sm">{{ .label }}</a>
-            {{ end }}
-            {{ end }}
+            <h4 class="display-4">{{ .title | markdownify }}</h4>
+            <p class="lead text-muted my-3">{{ .content | markdownify }}</p>
+            {{- if .button.enable }}
+            {{- with .button }}
+            <a class="btn btn-main" href="{{ .link | absURL }}">{{ .label | markdownify }}</a>
+            {{- end }}
+            {{- end }}
           </div>
         </div>
       </div>
-      {{- else }}
-      <div class="row mb-40">
-        <div class="col-md-8 order-md-1 order-2 align-self-center text-center text-md-end">
-          <div class="content">
-            <h4 class="subheading">{{ .title | markdownify }}</h4>
-            <p>{{ .content | markdownify }}</p>
-            {{ if .button.enable }}
-            {{ with .button }}
-            <a href="{{ .link | absURL }}" class="btn btn-main btn-main-sm">{{ .label }}</a>
-            {{ end }}
-            {{ end }}
-          </div>
-        </div>
-        <div class="col-md-4 order-md-2 order-1 text-center mb-5 mb-md-0">
-          <img class="img-fluid" src="{{ .image | absURL }}" alt="">
-        </div>
-      </div>
-      {{ end }}
-      {{ end }}
+      {{- end }}
     </div>
   </div>
 </section>
-{{ end }}
-{{ end }}
+{{- end }}
+{{- end }}

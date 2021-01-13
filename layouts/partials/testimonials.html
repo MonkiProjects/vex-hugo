@@ -6,9 +6,7 @@
     {{ with $data.homepage.testimonial }}
     <div class="row justify-content-center">
       <div class="col-12">
-        <div class="heading">
-          <h2>{{ .title | markdownify }}</h2>
-        </div>
+        <h2 class="display-2">{{ .title | markdownify }}</h2>
       </div>
       {{ range .testimonial_item }}
       <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0 text-center">
