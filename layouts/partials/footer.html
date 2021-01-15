@@ -22,7 +22,9 @@
               </li>
             {{- end }}
           </ul>
-          <p class="copyright-text">{{ site.Params.copyright | markdownify }}</p>
+          <div class="copyright-text text-muted mt-3">
+            <small>{{ site.Params.copyright | markdownify }}</small>
+          </div>
         </div>
       </div>
     </div>
