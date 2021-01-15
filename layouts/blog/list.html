@@ -1,11 +1,11 @@
 {{ define "main" }}
-<main class="gallery py-5 text-sm-center container">
-  <div class="row py-lg-5">
-    <h1 class="display-1 mb-3">{{ .Title }}</h1>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center text-start">
-      {{- range where .Site.RegularPages "Section" "blog" }}
+<main class="py-5 text-sm-center">
+  <div class="container py-lg-5">
+    <h1 class="display-1 mb-5">{{ .Title }}</h1>
+    <div class="gallery row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center text-start">
+      {{- range where .Site.RegularPages "Type" "blog" }}
       <article class="col">
-        <div class="card shadow-sm h-100">
+        <div class="card shadow-sm mb-3 h-100">
           <img class="card-img-top" src="{{ .Params.image | absURL }}" alt="Post thumbnail">
           <div class="card-body">
             <h4 class="card-title">{{ .Title | markdownify }}</h4>

@@ -1,0 +1,30 @@
+{{ define "main" }}
+<main class="py-5 text-sm-center">
+  <div class="container py-lg-5">
+    <h1 class="display-1 mb-5">{{ .Title }}</h1>
+    <div class="gallery row row-cols-1 row-cols-lg-2 g-4 justify-content-center text-start">
+      {{- range where .Site.RegularPages "Type" "team" }}
+      <article class="col">
+        <div class="card shadow-sm mb-3 h-100 d-flex flex-row align-items-center">
+          <div class="col-5 h-100">
+            <img class="card-img w-100 h-100" src="{{ .Params.image | absURL }}" alt="Profile picture" style="object-fit: cover;">
+          </div>
+          <div class="col-7">
+            <div class="card-body">
+              <h3 class="card-title">{{ with .Params.profile.display_name }}{{ . }}{{ else }}{{ .Title }}{{ end }}</h3>
+              {{- with .Params.profile.job_title }}
+              <span class="card-text">{{ . }}</span>
+              {{- end }}
+              <p class="card-text text-muted"><small>{{ .Summary }}</small></p>
+              <a class="btn btn-primary stretched-link text-white" href="{{ .Permalink }}">
+                {{- i18n "more_details" | markdownify -}}
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+      {{- end }}
+    </div>
+  </div>
+</main>
+{{ end }}

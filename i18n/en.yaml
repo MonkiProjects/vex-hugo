@@ -1,0 +1,10 @@
+- id: written_by
+  translation: "Written by"
+
+- id: reading_time
+  one: "{{ .Count }} minute to read"
+  other: "{{ .Count }} minutes to read"
+
+- id: word_count
+  one: "{{ .WordCount }} word"
+  other: "{{ .WordCount }} words"

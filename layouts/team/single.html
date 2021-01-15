@@ -1,0 +1,17 @@
+{{ define "main" }}
+<main class="py-5 text-sm-center">
+  <div class="container py-lg-5">
+    <div class="col-xl-7 col-lg-10 mx-auto">
+      <img class="col-sm-4 col-6 rounded mx-auto mb-4 d-block" src="{{ .Params.image | absURL }}" alt="">
+      <h1 class="display-1">{{ with .Params.profile.display_name }}{{ . }}{{ else }}{{ .Title }}{{ end }}</h1>
+      {{- with .Params.profile.job_title }}
+      <h2>{{ . }}</h2>
+      {{- end }}
+      <p class="lead my-3">{{ .Summary | markdownify }}</p>
+      {{- with .Params.profile }}
+        {{- partial "socials" . }}
+      {{- end }}
+    </div>
+  </div>
+</main>
+{{ end }}
