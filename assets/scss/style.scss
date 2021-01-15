@@ -292,15 +292,6 @@ a, a:active, a:focus, a:active {
   }
 }
 
-.footer-menu {
-  a {
-    font-size: 14;
-    font-weight: 700;
-    color: #444;
-    padding: 10px;
-  }
-}
-
 footer {
   text-align: center;
   background: #f4f4f4;
@@ -309,6 +300,13 @@ footer {
   .footer-logo {
     color: #555;
     display: block;
+  }
+
+  .nav-item a {
+    font-size: 14;
+    font-weight: 700;
+    color: #444;
+    padding: 10px;
   }
 
   p.copyright-text {
