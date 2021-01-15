@@ -1,20 +1,22 @@
 {{ define "main" }}
 <section class="gallery py-5 text-sm-center text-lg-start">
   <div class="container py-lg-5">
-    <div class="col-lg-6 offset-lg-1 order-lg-1 mb-3">
-      {{ "<!-- App Description -->" | safeHTML }}
-      <h1 class="display-1 mb-3">{{ .Title | markdownify }}</h1>
-      <p class="lead">{{ .Content | markdownify }}</p>
-      <a class="btn btn-main my-2 disabled" href="#">{{ i18n "view_in_app_store" | markdownify }}</a>
-    </div>
-    <div class="col-lg-5 order-lg-0">
-      {{ "<!-- App Image Slider -->" | safeHTML }}
-      <div class="app-image-slider">
-        {{- range .Params.images }}
-        <div class="d-flex justify-content-center" data-image="{{ . | absURL }}">
-          <img class="img-fluid" style="max-height: 50vh;" src="{{ . | absURL }}" alt="App screenshot">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-1 order-lg-1 mb-3">
+        {{ "<!-- App Description -->" | safeHTML }}
+        <h1 class="display-1 mb-3">{{ .Title | markdownify }}</h1>
+        <p class="lead">{{ .Content | markdownify }}</p>
+        <a class="btn btn-main my-2 disabled" href="#">{{ i18n "view_in_app_store" | markdownify }}</a>
+      </div>
+      <div class="col-lg-5 order-lg-0">
+        {{ "<!-- App Image Slider -->" | safeHTML }}
+        <div class="app-image-slider">
+          {{- range .Params.images }}
+          <div class="d-flex justify-content-center" data-image="{{ . | absURL }}">
+            <img class="img-fluid" style="max-height: 50vh;" src="{{ . | absURL }}" alt="App screenshot">
+          </div>
+          {{- end }}
         </div>
-        {{- end }}
       </div>
     </div>
   </div>
