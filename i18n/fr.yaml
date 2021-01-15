@@ -1,0 +1,9 @@
+written_by: "Écrit par"
+
+reading_time:
+  one: "{{ .Count }} minute de lecture"
+  other: "{{ .Count }} minutes de lecture"
+
+word_count:
+  one: "{{ .WordCount }} mot"
+  other: "{{ .WordCount }} mots"
